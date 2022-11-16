@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module">
+      import Alpine from 'alpinejs';
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script>
+    <style>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+    </style>
+    <title>Vite Alpine Tailwind</title>
+  </head>
+  <body>
+    <div class="flex items-center justify-center h-screen bg-gray-200">
+      <div
+        class="text-9xl hover:italic text-slate-800 hover:text-blue-600"
+        @click="console.log('I\'ve been clicked!')"
+        x-data="{ message: 'I ❤️ Alpine' }"
+        x-text="message"
+      ></div>
+    </div>
+  </body>
+</html>
