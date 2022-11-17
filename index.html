@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module">
       import Alpine from 'alpinejs';
+      import counter from './src/counter.js'
+
       window.Alpine = Alpine;
+      Alpine.data('counter', counter);
+
       Alpine.start();
     </script>
     <style>
@@ -14,16 +18,29 @@
       @tailwind components;
       @tailwind utilities;
     </style>
-    <title>Vite Alpine Tailwind</title>
+    <title>🔌 I ❤️ Alpine 🔌</title>
   </head>
-  <body>
+  <body class="bg-gray-100">
     <div class="flex items-center justify-center h-screen bg-gray-200">
       <div
-        class="text-9xl hover:italic text-red-400 hover:text-red-800"
-        x-data="{ message: 'I ❤️ Alpine' }"
+        class="text-6xl hover:italic text-red-400 hover:text-red-800"
+        x-data="{ message: document.title }"
         x-text="message"
         @click="console.log('I\'ve been clicked!')"
       ></div>
+      <div x-data="counter">
+        <div class="flex items-center justify-center h-screen bg-gray-200">
+            <button x-on:click="increment($event)"
+                    class="text-white bg-gray-600 px-4 py-2 rounded hover:bg-gray-900">++
+            </button>
+            <span   x-text="count" class="m-5"></span>
+            <button x-on:click="decrement($event)"
+                    class="text-white bg-gray-600 px-4 py-2 rounded hover:bg-gray-900">--
+            </button>
+        </div>
+      </div>
     </div>
+
+  <script src="./src/main.js"></script>
   </body>
 </html>
